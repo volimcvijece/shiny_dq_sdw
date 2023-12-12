@@ -132,7 +132,7 @@ class Dynamic():
 
         
             #valjda je regex dobar#|_RC
-            temp_tables = info_schema_whole_db.loc[info_schema_whole_db['TABLE_NAME'].str.contains('diff|test|bkup|backup|bkp|temp|_rc_|sys|_RC', na=False, regex=True, case=False),'TABLE_NAME'].unique().tolist()
+            temp_tables = info_schema_whole_db.loc[info_schema_whole_db['TABLE_NAME'].str.contains('diff|bkup|backup|bkp|temp|_rc_|sys|_RC', na=False, regex=True, case=False),'TABLE_NAME'].unique().tolist()
             print("ignore tables:", temp_tables)
 
             info_schema_whole_db =info_schema_whole_db[~(info_schema_whole_db['TABLE_NAME'].isin(temp_tables))] #prije: ~(all_tables_subset['COLUMN_NAME'].str.contains("CaseId") |  all_tables['COLUMN_NAME'].isin(ignorelist_infoschema))
